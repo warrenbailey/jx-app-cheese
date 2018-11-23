@@ -1,9 +1,10 @@
 NAME := jx-app-cheese
+PLUGIN_NAME := jx-brie
 
 all: build
 
 build:
-	go build -o bin/jx-brie brie.go
+	go build -o bin/${PLUGIN_NAME} brie.go
 
 tag: build
 	git add --all
@@ -13,7 +14,7 @@ tag: build
 
 release: tag
 	mkdir -p release
-	cp bin/brie release
+	cp bin/${PLUGIN_NAME} release
 
 	go get -u github.com/progrium/gh-release
 	gh-release checksums sha256
