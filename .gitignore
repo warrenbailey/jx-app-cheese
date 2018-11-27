@@ -1,2 +1,4 @@
 release
 charts/*@tmp/durable-*
+charts/*/*.tgz
+charts/*/templates/release.yaml
