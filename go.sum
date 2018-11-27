@@ -1,0 +1,8 @@
+github.com/kardianos/osext v0.0.0-20170510131534-ae77be60afb1 h1:PJPDf8OUfOK1bb/NeTKd4f1QXZItOX389VN3B6qC8ro=
+github.com/kardianos/osext v0.0.0-20170510131534-ae77be60afb1/go.mod h1:1NbS8ALrpOvjt0rHPNLyCIeMtbizbir8U//inJ+zuB8=
+github.com/mitchellh/go-homedir v1.0.0 h1:vKb8ShqSby24Yrqr/yDYkuFz8d0WUjys40rvnGC8aR0=
+github.com/mitchellh/go-homedir v1.0.0/go.mod h1:SfyaCUpYCn1Vlf4IUYiD9fPX4A5wJrkLzIz1N1q0pr0=
+github.com/progrium/gh-release v2.2.1+incompatible h1:4onGzyjKl4DHbIMOueT6xzRo79MNH5CG9MKwYHYnI7o=
+github.com/progrium/gh-release v2.2.1+incompatible/go.mod h1:RYwpy7vlkYFxs88MEizbUvh5iPkrJVoHZ+W9A+Z0EAA=
+github.com/progrium/go-basher v0.0.0-20170201215011-6a5b35fcdaea h1:3bIwq996zdN8FKy3bp4F6RJtWCIi6YKVSzGl2eIowtQ=
+github.com/progrium/go-basher v0.0.0-20170201215011-6a5b35fcdaea/go.mod h1:Oiy7jZEU1mm+gI1dt5MKYwxptmD37q8/UupxnwhMHtI=
