@@ -74,7 +74,7 @@ pipeline {
 
           dir ('/home/jenkins/go/src/github.com/jenkins-x-apps/jx-app-cheese') {
             // release the binary
-            sh 'make release'
+            sh 'GO111MODULE=on make release'
           }
         }
       }
