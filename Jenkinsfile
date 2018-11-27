@@ -45,7 +45,7 @@ pipeline {
             sh "echo \$(jx-release-version) > VERSION"
           }
           dir ('/home/jenkins/go/src/github.com/jenkins-x-apps/jx-app-cheese/charts/jx-app-cheese') {
-            sh "make tag"
+            sh "make release"
           }
           dir ('/home/jenkins/go/src/github.com/jenkins-x-apps/jx-app-cheese') {
             sh "make build"
@@ -64,7 +64,9 @@ pipeline {
             sh 'jx step helm release'
           }
           dir ('/home/jenkins/go/src/github.com/jenkins-x-apps/jx-app-cheese') {
-            // release the docker image
+            // release the binary
+            sh 'make release'
+            
             
           }
         }
