@@ -1,19 +1,13 @@
 NAME := jx-app-cheese
 PLUGIN_NAME := jx-brie
-VERSION := $(shell cat ./VERSION)
 
 all: build
 
 build:
 	go build -o bin/${PLUGIN_NAME} brie.go
 
-release: build
-	mkdir -p release
-	cp bin/${PLUGIN_NAME} release
-
-	go get -u github.com/progrium/gh-release
-	gh-release checksums sha256
-	gh-release create jenkins-x-apps/$(NAME) $(VERSION)
+release:
+	goreleaser
 
 clean:
-	rm -rf release bin
+	rm -rf bin

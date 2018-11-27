@@ -1,11 +1,14 @@
 pipeline {
     agent any
     environment {
-      ORG               = 'jenkinsxio'
-      GITHUB_ORG        = 'jenkins-x-apps'
-      APP_NAME          = 'jx-app-cheese'
-      GIT_PROVIDER      = 'github.com'
-      CHARTMUSEUM_CREDS = credentials('jenkins-x-chartmuseum')
+      ORG                 = 'jenkinsxio'
+      GITHUB_ORG          = 'jenkins-x-apps'
+      APP_NAME            = 'jx-app-cheese'
+      GIT_PROVIDER        = 'github.com'
+      CHARTMUSEUM_CREDS   = credentials('jenkins-x-chartmuseum')
+      GH_CREDS            = credentials('jenkins-x-github')
+      GITHUB_ACCESS_TOKEN = "$GH_CREDS_PSW"
+
     }
     stages {
       stage('CI Build and push snapshot') {
@@ -60,11 +63,18 @@ pipeline {
           dir ('/home/jenkins/go/src/github.com/jenkins-x-apps/jx-app-cheese/charts/jx-app-cheese') {
             sh 'jx step changelog --version v\$(cat ../../VERSION)'
           }
+
+          dir ('/home/jenkins/go/src/github.com/jenkins-x-apps/jx-app-cheese') {
+            // release the binary
+            sh 'go get -d github.com/goreleaser/goreleaser'
+	          sh 'cd $GOPATH/src/github.com/goreleaser/goreleaser'
+	          sh 'dep ensure -vendor-only'
+	          sh 'make setup build'
+          }
+
           dir ('/home/jenkins/go/src/github.com/jenkins-x-apps/jx-app-cheese') {
             // release the binary
             sh 'make release'
-            
-            
           }
         }
       }
