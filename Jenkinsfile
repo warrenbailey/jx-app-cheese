@@ -48,7 +48,7 @@ pipeline {
             sh "echo \$(jx-release-version) > VERSION"
           }
           dir ('/home/jenkins/go/src/github.com/jenkins-x-apps/jx-app-cheese/charts/jx-app-cheese') {
-            sh "make release"
+            sh "make tag"
           }
           dir ('/home/jenkins/go/src/github.com/jenkins-x-apps/jx-app-cheese') {
             sh "make build"
@@ -62,6 +62,7 @@ pipeline {
         steps {
           dir ('/home/jenkins/go/src/github.com/jenkins-x-apps/jx-app-cheese/charts/jx-app-cheese') {
             sh 'jx step changelog --version v\$(cat ../../VERSION)'
+            sh 'make release'
           }
 
           dir ('/home/jenkins/go/src/github.com/jenkins-x-apps/jx-app-cheese') {
