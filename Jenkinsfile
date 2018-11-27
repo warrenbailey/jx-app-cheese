@@ -66,10 +66,9 @@ pipeline {
 
           dir ('/home/jenkins/go/src/github.com/jenkins-x-apps/jx-app-cheese') {
             // release the binary
-            sh 'go get -d github.com/goreleaser/goreleaser'
-	          sh 'cd $GOPATH/src/github.com/goreleaser/goreleaser'
-	          sh 'dep ensure -vendor-only'
-	          sh 'make setup build'
+            sh 'curl -Lf https://github.com/goreleaser/goreleaser/releases/download/v0.93.2/goreleaser_Linux_x86_64.tar.gz | tar -xzv -C ./goreleaser/ && \
+    mv goreleaser/goreleaser /usr/bin/ && \
+    rm -rf goreleaser'
           }
 
           dir ('/home/jenkins/go/src/github.com/jenkins-x-apps/jx-app-cheese') {
