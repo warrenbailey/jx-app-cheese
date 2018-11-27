@@ -7,7 +7,7 @@ pipeline {
       GIT_PROVIDER        = 'github.com'
       CHARTMUSEUM_CREDS   = credentials('jenkins-x-chartmuseum')
       GH_CREDS            = credentials('jenkins-x-github')
-      GITHUB_ACCESS_TOKEN = "$GH_CREDS_PSW"
+      GITHUB_TOKEN = "$GH_CREDS_PSW"
 
     }
     stages {
