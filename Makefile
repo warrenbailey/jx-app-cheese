@@ -1,5 +1,6 @@
 NAME := jx-app-cheese
 PLUGIN_NAME := jx-brie
+VERSION := $(shell cat ./VERSION)
 
 all: build
 
