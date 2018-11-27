@@ -59,9 +59,6 @@ pipeline {
         steps {
           dir ('/home/jenkins/go/src/github.com/jenkins-x-apps/jx-app-cheese/charts/jx-app-cheese') {
             sh 'jx step changelog --version v\$(cat ../../VERSION)'
-
-            // release the helm chart
-            sh 'jx step helm release'
           }
           dir ('/home/jenkins/go/src/github.com/jenkins-x-apps/jx-app-cheese') {
             // release the binary
