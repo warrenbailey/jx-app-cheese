@@ -1,6 +1,6 @@
 plugin:
-  subCommand: cheese
-  group: Cheeses
+  subCommand: jx-brie
+  group: Cheese
   description: Some brie for Jenkins X
-  name: brie
+  name: jx-app-cheese
   
