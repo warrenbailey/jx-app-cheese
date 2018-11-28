@@ -3,4 +3,11 @@ plugin:
   group: Cheese
   description: Some brie for Jenkins X
   name: jx-app-cheese
+  goarch: 
+  - 386
+  - amd64
+  goos: 
+  - Windows
+  - Linux
+  - Darwin
   
