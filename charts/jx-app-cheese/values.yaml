@@ -4,8 +4,9 @@ plugin:
   description: Some brie for Jenkins X
   name: jx-app-cheese
   goarch: 
-  - 386
+  - i386
   - amd64
+  - x86_64
   goos: 
   - Windows
   - Linux
