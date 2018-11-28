@@ -7,7 +7,7 @@ metadata:
 spec:
   subCommand: {{ .Values.plugin.subCommand }}
   group: {{ .Values.plugin.subCommand }}
-  url: https://github.com/jenkins-x-apps/jx-app-cheese/releases/download/v{{ .Chart.Version }}/jx-app-cheese_0.0.23_Darwin_i386.tar.gz
+  url: https://github.com/jenkins-x-apps/jx-app-cheese/releases/download/v{{ .Chart.Version }}/jx-app-cheese_{{ .Chart.Version }}_Darwin_i386.tar.gz
   description: {{ .Values.plugin.description }}
   name: {{ .Values.plugin.name }}
   version: {{ .Chart.Version }}
