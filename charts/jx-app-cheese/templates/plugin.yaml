@@ -7,7 +7,18 @@ metadata:
 spec:
   subCommand: {{ .Values.plugin.subCommand }}
   group: {{ .Values.plugin.group }}
-  url: https://github.com/jenkins-x-apps/jx-app-cheese/releases/download/v{{ .Chart.Version }}/jx-app-cheese_{{ .Chart.Version }}_Darwin_i386.tar.gz
+  binaries:
+  {{- range $goos := .Values.plugin.goos }}
+  {{- range $goarch := $.Values.plugin.goarch }}
+  {{- $ext := "tar.gz" }}
+  {{- if eq $goos "Windows" }}
+  {{- $ext := "zip" }}
+  {{- end}}
+  - url: https://github.com/jenkins-x-apps/jx-app-cheese/releases/download/v{{ $.Chart.Version }}/jx-app-cheese_{{ $.Chart.Version }}_{{ $goos }}_{{ $goarch }}.{{ $ext }}
+    goarch: {{ $goarch }}
+    goos: {{ $goos }}
+  {{- end }}
+  {{- end }}
   description: {{ .Values.plugin.description }}
   name: {{ .Values.plugin.name }}
   version: {{ .Chart.Version }}
