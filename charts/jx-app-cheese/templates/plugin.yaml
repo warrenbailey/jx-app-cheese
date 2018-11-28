@@ -6,7 +6,7 @@ metadata:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
 spec:
   subCommand: {{ .Values.plugin.subCommand }}
-  group: {{ .Values.plugin.subCommand }}
+  group: {{ .Values.plugin.group }}
   url: https://github.com/jenkins-x-apps/jx-app-cheese/releases/download/v{{ .Chart.Version }}/jx-app-cheese_{{ .Chart.Version }}_Darwin_i386.tar.gz
   description: {{ .Values.plugin.description }}
   name: {{ .Values.plugin.name }}
