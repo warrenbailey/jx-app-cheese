@@ -15,8 +15,8 @@ spec:
   {{- $ext := "zip" }}
   {{- end}}
   - url: https://github.com/jenkins-x-apps/jx-app-cheese/releases/download/v{{ $.Chart.Version }}/jx-app-cheese_{{ $.Chart.Version }}_{{ $goos }}_{{ $goarch }}.{{ $ext }}
-    goarch: {{ $goarch }}
-    goos: {{ $goos }}
+    goarch: "{{ $goarch }}"
+    goos: "{{ $goos }}"
   {{- end }}
   {{- end }}
   description: {{ .Values.plugin.description }}
