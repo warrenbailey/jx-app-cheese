@@ -1,0 +1,6 @@
+plugin:
+  subCommand: cheese
+  group: Cheeses
+  description: Some brie for Jenkins X
+  name: brie
+  
