@@ -4,6 +4,7 @@ metadata:
   name: {{ template "fullname" . }}
   labels:
     chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+    jenkins.io/pluginCommand: jx-{{ .Values.plugin.subCommand }}
 spec:
   subCommand: {{ .Values.plugin.subCommand }}
   group: {{ .Values.plugin.group }}
