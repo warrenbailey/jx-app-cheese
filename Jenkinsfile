@@ -6,7 +6,7 @@ pipeline {
       APP_NAME            = 'jx-app-cheese'
       GIT_PROVIDER        = 'github.com'
       CHARTMUSEUM_CREDS   = credentials('jenkins-x-chartmuseum')
-      GH_CREDS            = credentials('jenkins-x-github')
+      GH_CREDS            = credentials('jx-pipeline-git-github-github')
       GITHUB_TOKEN = "$GH_CREDS_PSW"
 
     }
