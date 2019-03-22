@@ -2,7 +2,6 @@ CHART_REPO := http://jenkins-x-chartmuseum:8080
 CURRENT=$(pwd)
 NAME := jx-app-cheese
 OS := $(shell uname)
-VERSION := $(shell cat ../../VERSION)
 
 init:
 	helm init --client-only
