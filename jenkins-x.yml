@@ -2,10 +2,11 @@ buildPack: apps
 pipelineConfig:
   pipelines:
     release:
+      agent:
+        image: centos:7
       build:
         preSteps:
-          - sh: export GORELEASER_VERSION=0.93.2
-          - sh: curl -Lf https://github.com/goreleaser/goreleaser/releases/download/v${GORELEASER_VERSION}/goreleaser_Linux_x86_64.tar.gz
+          - sh: curl -Lf https://github.com/goreleaser/goreleaser/releases/download/v0.93.2/goreleaser_Linux_x86_64.tar.gz
           - sh: tar -xzv -C ./goreleaser/
           - sh: mkdir goreleaser
           - sh: mv goreleaser/goreleaser /usr/bin/
