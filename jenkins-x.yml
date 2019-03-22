@@ -9,7 +9,7 @@ pipelineConfig:
             - name: GORELEASER_VERSION
               value: 0.93.2
           steps:
-            command: mkdir
+          - command: mkdir
             args:
             - goreleaser
 
