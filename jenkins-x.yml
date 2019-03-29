@@ -4,6 +4,7 @@ pipelineConfig:
     release:
       agent:
         image: centos:7
-      preSteps:
-        - sh: mkdir goreleaser
-        - sh: curl -Lf https://github.com/goreleaser/goreleaser/releases/download/v0.93.2/goreleaser_Linux_x86_64.tar.gz | tar -xzv -C ./goreleaser/
+      build:
+        preSteps:
+          - sh: mkdir goreleaser
+          - sh: curl -Lf https://github.com/goreleaser/goreleaser/releases/download/v0.93.2/goreleaser_Linux_x86_64.tar.gz | tar -xzv -C ./goreleaser/
