@@ -1,0 +1,38 @@
+Step: build-step-credential-initializer-kc82d:
+
+{"level":"warn","ts":1553861230.3247056,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1553861230.3256028,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-warrenbailey-jx-app-sonarqube-tekton-buil:
+
+{"level":"warn","ts":1553861231.6800287,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1553861232.377371,"logger":"fallback-logger","caller":"git-init/main.go:99","msg":"Successfully cloned \"https://github.com/warrenbailey/jx-app-sonarqube\" @ \"v0.0.6\" in path \"/workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-setup-jx-git-credentials:
+
+Generated Git credentials file /workspace/xdg_config/git/credentials
+Step: build-step-build-build:
+
+go: creating new go.mod: module github.com/warrenbailey/jx-app-sonarqube
+CGO_ENABLED=0 GO111MODULE=on GO15VENDOREXPERIMENT=1 goGO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/jx-app-sonarqube main.go
+Step: build-step-build-tag:
+
+sed -i -e "s/version:.*/version: 0.0.6/" Chart.yaml
+sed -i -e "s|repository: .*|repository: 10.47.243.55:5000\/jenkins-x-apps\/jx-app-sonarqube|" values.yaml
+sed -i -e "s/tag: .*/tag: 0.0.6/" values.yaml
+git add --all
+git commit -m "release 0.0.6" --allow-empty # if first release then no verion update is performed
+[master 1f634de] release 0.0.6
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+ create mode 100644 go.mod
+git tag -fa v0.0.6 -m "Release version 0.0.6"
+Step: build-step-build-helm-build:
+
+No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: jenkins-x http://chartmuseum.jenkins-x.io
+Successfully added Helm repository jenkins-x.
+Adding missing Helm repo: releases http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository releases.
+Step: build-step-build-helm-version:
+
+Modified file Chart.yaml to set the chart to version 3
