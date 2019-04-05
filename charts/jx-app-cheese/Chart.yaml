@@ -2,4 +2,4 @@ apiVersion: v1
 description: The Cheese App for Jenkins X
 icon: https://freeiconshop.com/wp-content/uploads/edd/cheese-solid.png
 name: jx-app-cheese
-version: 0.0.64
+version: 0.0.71
