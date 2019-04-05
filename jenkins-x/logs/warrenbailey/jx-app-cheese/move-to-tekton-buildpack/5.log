@@ -1,0 +1,65 @@
+Step: build-step-credential-initializer-qnjqp:
+
+{"level":"warn","ts":1554456011.2421668,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1554456011.24525,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+Step: build-step-git-source-************-**-app-cheese-move-l8zqh:
+
+{"level":"warn","ts":1554456012.034079,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/backport-container-name-fix\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1554456013.2261899,"logger":"fallback-logger","caller":"git-init/main.go:99","msg":"Successfully cloned \"https://github.com/************/**-app-cheese\" @ \"v0.0.70\" in path \"/workspace/source\""}
+Step: build-step-place-tools:
+
+Step: build-step-git-merge:
+
+Warning failed to load version: failed to parse version -dev+81d390e9c: No Major.Minor.Patch elements found
+time="2019-04-05T09:20:15Z" level=warning msg="no SHAs to merge, falling back to initial cloned commit"
+Step: build-step-setup-**-git-credentials:
+
+Generated Git credentials file /workspace/xdg_config/git/credentials
+Step: build-step-build-step3:
+
+Step: build-step-build-step4:
+
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   620    0   620    0     0   1180      0 --:--:-- --:--:-- --:--:--  1180
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0LICENSE.md
+README.md
+goreleaser
+100 4683k  100 4683k    0     0  2830k      0  0:00:01  0:00:01 --:--:-- 5530k
+Step: build-step-build-build:
+
+go build -o bin/**-brie brie.go
+go: finding github.com/progrium/go-basher v0.0.0-20170201215011-6a5b35fcdaea
+go: finding github.com/progrium/gh-release v2.2.1+incompatible
+go: finding github.com/mitchellh/go-homedir v1.0.0
+go: finding github.com/kardianos/osext v0.0.0-20170510131534-ae77be60afb1
+Step: build-step-build-tag:
+
+sed -i -e "s/version:.*/version: 0.0.70/" Chart.yaml
+sed -i -e "s/tag: .*/tag: 0.0.70/" values.yaml
+git add --all
+git commit -m "release 0.0.70" --allow-empty # if first release then no verion update is performed
+[master dfb3ff5] release 0.0.70
+ 3 files changed, 102 insertions(+)
+ create mode 100644 goreleaser/LICENSE.md
+ create mode 100644 goreleaser/README.md
+ create mode 100755 goreleaser/goreleaser
+git tag -fa v0.0.70 -m "Release version 0.0.70"
+Step: build-step-build-helm-build:
+
+No $CHART_REPOSITORY defined so using the default value of: http://jenkins-x-chartmuseum:8080
+Adding missing Helm repo: jenkins-x http://chartmuseum.jenkins-x.io
+Successfully added Helm repository jenkins-x.
+Adding missing Helm repo: releases http://jenkins-x-chartmuseum:8080
+Successfully added Helm repository releases.
+Step: build-step-build-helm-version:
+
+Modified file Chart.yaml to set the chart to version 5
+Step: build-step-source-mkdir-************-**-app-cheese-move-w4hgt:
+
+{"level":"warn","ts":1554456050.9152818,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1554456051.0359397,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"mkdir -p /pvc/from-build-pack/workspace\""}
+Step: build-step-source-copy-************-**-app-cheese-move-lwpqh:
+
+{"level":"warn","ts":1554456052.3887222,"logger":"fallback-logger","caller":"logging/config.go:65","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1554456052.4193666,"logger":"fallback-logger","caller":"bash/main.go:65","msg":"Successfully executed command \"cp -r /workspace/source/. /pvc/from-build-pack/workspace\""}
