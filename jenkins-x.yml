@@ -4,6 +4,15 @@ pipelineConfig:
     release:
       agent:
         image: centos:7
+      environment:
+        - name: GIT_COMMITTER_EMAIL
+          value: jenkins-x@googlegroups.com
+        - name: GIT_COMMITTER_NAME
+          value: jenkins-x-bot
+        - name: GIT_AUTHOR_EMAIL
+          value: jenkins-x@googlegroups.com
+        - name: GIT_AUTHOR_NAME
+          value: jenkins-x-bot
       build:
         preSteps:
           - sh: mkdir goreleaser
